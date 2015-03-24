@@ -1,0 +1,20 @@
+<h2>Customers</h2>
+<input type="search" class="form-control" placehoder='Search' ng-model="FilterBy.name">
+<table class="table">
+	<tr>
+		<th ng-click="doSort('name')">Name</th>
+		<th ng-click='doSort("city")'>City</th>
+		<th>Total Orders</th>
+	</tr>
+	<tr ng-repeat='customer in customers | filter: FilterBy | orderBy: wordOrder : reverse'>
+		<td>{{customer.name}}</td>
+		<td>{{customer.city}}</td>
+		<td>{{customer.totalOrders}}</td>
+		<td>
+			<a href ng-click="show(customer.id)" class="btn btn-default">View Order</a>
+			<a href ng-click="edit(customer.id)" class="btn btn-success">Edit Customer</a>
+			<span class="glyphicon glyphicon-remove" id='delete' aria-hidden="true" ng-click="delete(customer)"></span>
+		</td>
+	</tr>
+</table>
+<a href="/#/customers/new"  class='btn btn-primary'>Add Customer</a>

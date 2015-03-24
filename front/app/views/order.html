@@ -1,0 +1,13 @@
+<input type="search" class="form-control" placehoder='Search' ng-model='filterBy.product'>
+
+<table class="table">
+	<tr>
+		<th>Product</th>
+		<th>Price</th>
+	</tr>
+	<tr ng-repeat="order in orders | filter: filterBy">
+		<td>{{order.product}}</td>
+		<td>{{order.price}}</td>
+	</tr>	
+</table>
+

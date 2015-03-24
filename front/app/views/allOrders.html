@@ -1,0 +1,16 @@
+<h3>All Orders</h3>
+
+<table class="table">
+	<tr>
+		<th>Product</th>
+		<th>Price</th>
+	</tr>
+	<tr ng-repeat='order in orders'>
+		<td>{{order.product}}</td>
+		<td>{{order.price}}</td>
+	</tr>
+	<tr ng-class="totalClass">
+		<td>Summary</td>
+		<td>{{ countOrders() }}</td>
+	</tr>
+</table>

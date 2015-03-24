@@ -1,0 +1,26 @@
+<h2>Create Customer</h2>
+
+<form name='newCustomerForm' ng-submit="newCustomerForm.$valid && createCustomer(newCustomerForm)" novalidate>	
+	<div id='preview'>
+		<p>{{customer.customer.name}}</p>
+		<p>{{customer.customer.city}}</p>
+	</div>
+	<div class="form-group" ng-class="{ 'has-error': newCustomerForm.name.$dirty && newCustomerForm.name.$invalid}">
+		<label for="name">Name</label>
+		<input type="text" name="name" id='name' class='form-control' ng-model="customer.customer.name" required autofocus>
+		<div ng-show="newCustomerForm.name.$dirty && newCustomerForm.name.$invalid" ng-messages="newCustomerForm.name.$error" style="color:maroon">
+			<div ng-message="required">Name is required</div>
+		</div>
+	</div>
+
+	<div class="form-group" ng-class="{ 'has-error': newCustomerForm.city.$dirty && newCustomerForm.city.$invalid}">
+		<label for="city">City</label>
+		<input type='text' name='city' id='city' class="form-control" ng-model="customer.customer.city" required>
+		<div ng-show="newCustomerForm.city.$dirty && newCustomerForm.city.$invalid" ng-messages="newCustomerForm.city.$error" style="color:maroon">
+			<div ng-message="required">City is required</div>
+		</div>
+	</div>	
+	<input type='submit' value="Create Customer" class="btn btn-primary">
+	<br>
+	<p>Form is: {{ newCustomerForm.$valid }}
+</form>
